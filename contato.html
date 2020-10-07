@@ -29,6 +29,14 @@
             let email = document.querySelector('#email');
             let telefone = document.querySelector('#telefone');
 
+            btnCadastrar.addEventListener('click', function(event){
+            event.preventDefault();
+
+            if(email.value.includes('@') == true){
+            } else {
+                alert("email inválido")
+            }
+        })
 
             console.log(nome.value + ' - ' + email.value + ' - ' + telefone.value);
 
@@ -44,6 +52,38 @@
             //postApi(dadosPessoais)
             console.log(JSON.stringify(dadosPessoais));
         }
+
+
+        //Relógio
+        function startTime()
+        {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        // add a zero in front of numbers<10
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+
+        }
+
+        function checkTime(i)
+        {
+        if (i<10)
+          {
+          i="0" + i;
+          }
+        return i;
+        }
+        </script>
+
+        <div id="txt">
+        <script type="text/javascript">document.write(startTime())</script>
+        </div>
+ 
+        <script type="text/javascript">document.write(Date());</script>
 
     </script>
 </body>
